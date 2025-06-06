@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FPC Band Calendar 2025-2026</title>
+    <meta name="description" content="Flagler Palm Coast Band Calendar for 2025-2026 school year">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="FPC Band">
+    <meta name="theme-color" content="#1e3a8a">
+    <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiRlBDIEJhbmQgQ2FsZW5kYXIiLCJzaG9ydF9uYW1lIjoiRlBDIEJhbmQiLCJzdGFydF91cmwiOiIuLyIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiMxZTNhOGEiLCJ0aGVtZV9jb2xvciI6IiMxZTNhOGEiLCJpY29ucyI6W3sic3JjIjoiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCM2FXUjBhRDBpTkRnaUlHaGxhV2RvZEQwaU5EZ2lJSFpwWlhkQ2IzZzlJakFnTUNBME9DQTBPQ0lnZUcxc2JuTTlJbWgwZEhBNkx5OTNkM2N1ZHpNdWIzSm5Mekl3TURBdmMzWm5JajRLSUNBOFkybHlZMnhsSUdONFBTSXlOQ0lnWTNrOUlqSTBJU0J5UFNJeE1pSWdabWxzYkQwaUl6RmxNMkU0WVNJdlBnb2dJRHhqYVhKamJHVWdZM2c5SWpJMElpQmplVDBpTWpRaUlISTlJaklpSUdacGJHdzlJaU16TldNMU1tTnZJaTgrQ2lBZ1BIQmhkR2dnWkQwaWJUSXdJREVrTURsc1NEVXFORE10TkRrZ01TVXlORFJoTVNBeElEQWdNREF0TURFdE9UTTNPQzR1TnpReE1pNHlOVEZzTmk0eU9USTFJRGMxTGpReE5qUXFPRGs2TWpjeU1DNDNOelJzTmk0eU9USklNall1TlRFeVRERTBMalEyTmpZZ01USXVOVEV5TERFMUxqWWdNVEV1TmprZ05qVTNMamN1TlRReU16azJPREJzTFRjdU5UUXlJRFJqTFRndU1qWTBJRGN1TkRjdE5TNDNPRGdnTVRRdU1qVXNNVGd1TlRjNUlERXdMak16TXpNME1qYzBiQzAzTGpnd05ETXROaTQ0TURRdE1UTXVORE00TURFeE5ETXlNaTB5TlM0eE5UWTBjaTAzTGpZNE56TTBMUzR3TURKa0lpQm1hV3hzUFNKakl6VmhOak01WmkwdFBpOEtJQ0E4TDNOMlp6NEsiLCJzaXplcyI6IjQ4eDQ4IiwidHlwZSI6ImltYWdlL3N2Zyt4bWwifV19">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            min-height: 100vh;
+            color: white;
+            padding: 0 10px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            margin: 10px -10px 20px -10px;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .month-nav {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .month-nav:hover, .month-nav.active {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .search-container {
+            margin: 0 0 20px 0;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .month-section {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .month-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #fbbf24;
+            text-align: center;
+        }
+
+        .event-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-left: 4px solid #fbbf24;
+            transition: all 0.3s ease;
+        }
+
+        .event-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
+        }
+
+        .event-date {
+            font-weight: 600;
+            color: #fbbf24;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .event-title {
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .event-time {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        .event-location {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            font-style: italic;
+            margin-top: 3px;
+        }
+
+        .no-events {
+            text-align: center;
+            opacity: 0.7;
+            font-style: italic;
+            padding: 20px;
+        }
+
+        .floating-home {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #fbbf24;
+            color: #1e3a8a;
+            border: none;
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(251, 191, 36, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .floating-home:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(251, 191, 36, 0.6);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .month-nav {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+            
+            .event-item {
+                padding: 12px;
+            }
+        }
+
+        .install-prompt {
+            background: rgba(251, 191, 36, 0.2);
+            border: 1px solid #fbbf24;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .install-btn {
+            background: #fbbf24;
+            color: #1e3a8a;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎵 FPC Band Calendar</h1>
+        <p>2025-2026 School Year</p>
+    </div>
+
+    <div id="installPrompt" class="install-prompt hidden">
+        <p>📱 Add FPC Band Calendar to your home screen for quick access!</p>
+        <button id="installBtn" class="install-btn">Add to Home Screen</button>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search events...">
+    </div>
+
+    <div class="controls">
+        <button class="month-nav active" data-month="all">All</button>
+        <button class="month-nav" data-month="july-2025">Jul '25</button>
+        <button class="month-nav" data-month="august-2025">Aug '25</button>
+        <button class="month-nav" data-month="september-2025">Sep '25</button>
+        <button class="month-nav" data-month="october-2025">Oct '25</button>
+        <button class="month-nav" data-month="november-2025">Nov '25</button>
+        <button class="month-nav" data-month="december-2025">Dec '25</button>
+        <button class="month-nav" data-month="january-2026">Jan '26</button>
+        <button class="month-nav" data-month="february-2026">Feb '26</button>
+        <button class="month-nav" data-month="march-2026">Mar '26</button>
+        <button class="month-nav" data-month="april-2026">Apr '26</button>
+        <button class="month-nav" data-month="may-2026">May '26</button>
+        <button class="month-nav" data-month="june-2026">Jun '26</button>
+    </div>
+
+    <div id="calendar-content">
+        <!-- Calendar content will be generated by JavaScript -->
+    </div>
+
+    <button class="floating-home" onclick="scrollToTop()" title="Back to top">
+        ↑
+    </button>
+
+    <script>
+        const calendarData = {
+            "july-2025": {
+                title: "July 2025",
+                events: [
+                    {
+                        date: "Jul 21-24",
+                        title: "Percussion Camp",
+                        time: "9:00 AM - 2:00 PM"
+                    },
+                    {
+                        date: "Jul 28-Aug 1",
+                        title: "Band Camp",
+                        time: "8:00 AM - 4:00 PM"
+                    }
+                ]
+            },
+            "august-2025": {
+                title: "August 2025",
+                events: [
+                    {
+                        date: "Aug 1",
+                        title: "Family Preview Show and Meal",
+                        time: "4:00 PM"
+                    },
+                    {
+                        date: "Aug 5",
+                        title: "First Tuesday Practice",
+                        time: "5:00 PM - 7:30 PM"
+                    },
+                    {
+                        date: "Aug 7",
+                        title: "First Thursday Practice",
+                        time: "4:00 PM - 6:30 PM"
+                    },
+                    {
+                        date: "Aug 22",
+                        title: "Away Game - Matanzas HS",
+                        time: "7:00 PM"
+                    },
+                    {
+                        date: "Aug 29",
+                        title: "Home Game - Lake Howell HS",
+                        time: "7:00 PM"
+                    }
+                ]
+            },
+            "september-2025": {
+                title: "September 2025",
+                events: [
+                    {
+                        date: "Sep 1",
+                        title: "No School - Labor Day",
+                        time: ""
+                    },
+                    {
+                        date: "Sep 5",
+                        title: "Away Game - Mainland HS",
+                        time: "7:00 PM",
+                        location: "Municipal Stadium Daytona Beach"
+                    },
+                    {
+                        date: "Sep 12",
+                        title: "Away Game - Lake Brantley HS",
+                        time: "7:00 PM"
+                    },
+                    {
+                        date: "Sep 13",
+                        title: "All State Auditions",
+                        location: "Matanzas HS"
+                    },
+                    {
+                        date: "Sep 19",
+                        title: "BYE Week - No Game, Rehearsal",
+                        time: "5:00 PM - 7:30 PM"
+                    },
+                    {
+                        date: "Sep 26",
+                        title: "Home Game - University HS",
+                        time: "7:00 PM"
+                    }
+                ]
+            },
+            "october-2025": {
+                title: "October 2025",
+                events: [
+                    {
+                        date: "Oct 3",
+                        title: "Home Game - Fletcher HS",
+                        time: "7:00 PM"
+                    },
+                    {
+                        date: "Oct 4",
+                        title: "Possible Marching Festival at FPC",
+                        time: "4:00 PM - 9:00 PM",
+                        location: "(Saturday)"
+                    },
+                    {
+                        date: "Oct 11",
+                        title: "Away Game - Deland HS",
+                        time: "7:00 PM"
+                    },
+                    {
+                        date: "Oct 17",
+                        title: "Home Game - Yulee HS (Homecoming)",
+                        time: "7:00 PM"
+                    },
+                    {
+                        date: "Oct 24",
+                        title: "Away Game - Spruce Creek HS",
+                        time: "7:00 PM"
+                    },
+                    {
+                        date: "Oct 25",
+                        title: "FBA Marching Performance Assessment",
+                        location: "Bartram Trail HS (Saturday Performance - All Day Commitment)"
+                    },
+                    {
+                        date: "Oct 31",
+                        title: "Home Game - Fleming Island HS (Senior Night)",
+                        time: "7:00 PM"
+                    }
+                ]
+            },
+            "november-2025": {
+                title: "November 2025",
+                events: [
+                    {
+                        date: "Nov 1",
+                        title: "Army Field Band and Chorus",
+                        time: ""
+                    },
+                    {
+                        date: "Nov 6",
+                        title: "Jazz Concert",
+                        time: "6:00 PM",
+                        location: "Flagler Auditorium"
+                    },
+                    {
+                        date: "Nov 7",
+                        title: "Possible Playoffs",
+                        time: ""
+                    },
+                    {
+                        date: "Nov 11",
+                        title: "No School - Veterans Day; Bunnell Veterans Day Parade",
+                        time: "9:00 AM Report"
+                    },
+                    {
+                        date: "Nov 13",
+                        title: "Pops Concert (All Bands)",
+                        time: "6:00 PM",
+                        location: "Flagler Auditorium"
+                    },
+                    {
+                        date: "Nov 24-28",
+                        title: "Thanksgiving Break",
+                        time: ""
+                    }
+                ]
+            },
+            "december-2025": {
+                title: "December 2025",
+                events: [
+                    {
+                        date: "Dec 1",
+                        title: "Hammock Chorus & Jazz Combo",
+                        time: ""
+                    },
+                    {
+                        date: "Dec 5",
+                        title: "First Friday, Flagler Beach Jazz Ensembles",
+                        time: ""
+                    },
+                    {
+                        date: "Dec 8",
+                        title: "Midterm Playing Exams",
+                        time: ""
+                    },
+                    {
+                        date: "Dec 9",
+                        title: "Holiday Extravaganza (Symphonic Band 1 & Chorus)",
+                        time: ""
+                    },
+                    {
+                        date: "Dec 13",
+                        title: "Starlight Parade, Full Marching Band",
+                        time: "3:00 PM Report Time"
+                    },
+                    {
+                        date: "Dec 14",
+                        title: "Navy Band Holiday Show",
+                        time: ""
+                    },
+                    {
+                        date: "Dec 22-Jan 6",
+                        title: "Winter Break",
+                        time: ""
+                    }
+                ]
+            },
+            "january-2026": {
+                title: "January 2026",
+                events: [
+                    {
+                        date: "Jan 7",
+                        title: "School Resumes",
+                        time: ""
+                    },
+                    {
+                        date: "Jan 14-17",
+                        title: "FMEA Convention",
+                        time: ""
+                    },
+                    {
+                        date: "Jan 19",
+                        title: "Martin Luther King Day",
+                        time: ""
+                    },
+                    {
+                        date: "Jan 20 & 27",
+                        title: "All County Band Rehearsal",
+                        time: "5:00 PM - 8:00 PM",
+                        location: "(first at FPC, then MHS)"
+                    },
+                    {
+                        date: "Jan 30",
+                        title: "All County Band Rehearsal",
+                        time: "8:30 AM Check-in, 9:00 AM - 5:00 PM"
+                    },
+                    {
+                        date: "Jan 31",
+                        title: "All County Band Rehearsal & Performance",
+                        time: "8:00 AM - 11:00 AM; Performance 11:30 AM"
+                    }
+                ]
+            },
+            "february-2026": {
+                title: "February 2026",
+                events: [
+                    {
+                        date: "Feb 4-5",
+                        title: "Jazz MPA",
+                        location: "Creekside HS (Times TBD)"
+                    },
+                    {
+                        date: "Feb 6-7",
+                        title: "Solo and Ensemble",
+                        location: "Creekside HS"
+                    },
+                    {
+                        date: "Feb 16",
+                        title: "No School - Presidents Day",
+                        time: ""
+                    },
+                    {
+                        date: "Feb 26-28",
+                        title: "District Concert MPA",
+                        location: "FPC (Times TBD)"
+                    }
+                ]
+            },
+            "march-2026": {
+                title: "March 2026",
+                events: [
+                    {
+                        date: "Mar 13",
+                        title: "No School - Teacher Workday",
+                        time: ""
+                    },
+                    {
+                        date: "Mar 16-20",
+                        title: "Spring Break",
+                        time: ""
+                    },
+                    {
+                        date: "Mar 26-29",
+                        title: "FFCC Cologuard Championships",
+                        location: "Ocean Center, Daytona Beach"
+                    }
+                ]
+            },
+            "april-2026": {
+                title: "April 2026",
+                events: [
+                    {
+                        date: "Apr 1",
+                        title: "Leadership Begins",
+                        time: "3:00 PM - 4:00 PM on Wednesdays throughout April"
+                    },
+                    {
+                        date: "Apr 3",
+                        title: "Professional Development - No School for Students",
+                        time: ""
+                    },
+                    {
+                        date: "Apr 22-24",
+                        title: "State Concert MPA",
+                        location: "University of North Florida"
+                    },
+                    {
+                        date: "Apr 23",
+                        title: "Starlets Showcase",
+                        time: ""
+                    }
+                ]
+            },
+            "may-2026": {
+                title: "May 2026",
+                events: [
+                    {
+                        date: "May 6",
+                        title: "Drum Major Auditions",
+                        time: "3:00 PM - 4:30 PM"
+                    },
+                    {
+                        date: "May 7",
+                        title: "Kickoff Night - Band Registration",
+                        time: "6:00 PM"
+                    },
+                    {
+                        date: "May 11",
+                        title: "Final Playing Exams Begin",
+                        time: ""
+                    },
+                    {
+                        date: "May 19",
+                        title: "Spring Concert",
+                        time: "6:00 PM"
+                    },
+                    {
+                        date: "May 21",
+                        title: "Flagler Band Boosters Annual Meeting - Board Elections/Budget",
+                        time: "6:00 PM"
+                    },
+                    {
+                        date: "May 26",
+                        title: "Band Awards Night (Tentative)",
+                        time: "6:00 PM"
+                    },
+                    {
+                        date: "May 29-30",
+                        title: "Freshman/Officer Camp",
+                        time: "9:00 AM - 12:00 PM"
+                    }
+                ]
+            },
+            "june-2026": {
+                title: "June 2026",
+                events: [
+                    {
+                        date: "June 1-4",
+                        title: "Music Camp - All Students",
+                        time: "9:00 AM - 12:00 PM"
+                    }
+                ]
+            }
+        };
+
+        let currentFilter = 'all';
+        let searchTerm = '';
+
+        function renderCalendar() {
+            const container = document.getElementById('calendar-content');
+            container.innerHTML = '';
+
+            const months = currentFilter === 'all' ? Object.keys(calendarData) : [currentFilter];
+            
+            months.forEach(monthKey => {
+                const monthData = calendarData[monthKey];
+                if (!monthData) return;
+
+                const filteredEvents = monthData.events.filter(event => {
+                    if (!searchTerm) return true;
+                    const searchLower = searchTerm.toLowerCase();
+                    return event.title.toLowerCase().includes(searchLower) ||
+                           event.date.toLowerCase().includes(searchLower) ||
+                           (event.location && event.location.toLowerCase().includes(searchLower));
+                });
+
+                if (filteredEvents.length === 0 && searchTerm) return;
+
+                const monthSection = document.createElement('div');
+                monthSection.className = 'month-section';
+                monthSection.id = monthKey;
+
+                const monthTitle = document.createElement('h2');
+                monthTitle.className = 'month-title';
+                monthTitle.textContent = monthData.title;
+                monthSection.appendChild(monthTitle);
+
+                if (filteredEvents.length === 0) {
+                    const noEvents = document.createElement('div');
+                    noEvents.className = 'no-events';
+                    noEvents.textContent = 'No events found';
+                    monthSection.appendChild(noEvents);
+                } else {
+                    filteredEvents.forEach(event => {
+                        const eventItem = document.createElement('div');
+                        eventItem.className = 'event-item';
+
+                        const eventDate = document.createElement('div');
+                        eventDate.className = 'event-date';
+                        eventDate.textContent = event.date;
+                        eventItem.appendChild(eventDate);
+
+                        const eventTitle = document.createElement('div');
+                        eventTitle.className = 'event-title';
+                        eventTitle.textContent = event.title;
+                        eventItem.appendChild(eventTitle);
+
+                        if (event.time) {
+                            const eventTime = document.createElement('div');
+                            eventTime.className = 'event-time';
+                            eventTime.textContent = `⏰ ${event.time}`;
+                            eventItem.appendChild(eventTime);
+                        }
+
+                        if (event.location) {
+                            const eventLocation = document.createElement('div');
+                            eventLocation.className = 'event-location';
+                            eventLocation.textContent = `📍 ${event.location}`;
+                            eventItem.appendChild(eventLocation);
+                        }
+
+                        monthSection.appendChild(eventItem);
+                    });
+                }
+
+                container.appendChild(monthSection);
+            });
+        }
+
+        function setActiveMonth(monthKey) {
+            document.querySelectorAll('.month-nav').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-month="${monthKey}"]`).classList.add('active');
+            currentFilter = monthKey;
+            renderCalendar();
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Event listeners
+        document.querySelectorAll('.month-nav').forEach(btn => {
+            btn.addEventListener('click', () => {
+                setActiveMonth(btn.dataset.month);
+            });
+        });
+
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            searchTerm = e.target.value;
+            renderCalendar();
+        });
+
+        // PWA Install functionality
+        let deferredPrompt;
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            document.getElementById('installPrompt').classList.remove('hidden');
+        });
+
+        document.getElementById('installBtn').addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                deferredPrompt = null;
+                document.getElementById('installPrompt').classList.add('hidden');
+            }
+        });
+
+        // Initialize calendar
+        renderCalendar();
+
+        // Service worker registration for PWA
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('data:text/javascript;base64,c2VsZi5hZGRFdmVudExpc3RlbmVyKCdpbnN0YWxsJywgZXZlbnQgPT4gewogIGV2ZW50LndhaXRVbnRpbChzZWxmLnNraXBXYWl0aW5nKCkpOwp9KTsKCnNlbGYuYWRkRXZlbnRMaXN0ZW5lcignYWN0aXZhdGUnLCBldmVudCA9PiB7CiAgZXZlbnQud2FpdFVudGlsKHNlbGYuY2xpZW50cy5jbGFpbSgpKTsKfSk7CgpzZWxmLmFkZEV2ZW50TGlzdGVuZXIoJ2ZldGNoJywgZXZlbnQgPT4gewogIGV2ZW50LnJlc3BvbmRXaXRoKGZldGNoKGV2ZW50LnJlcXVlc3QpKTsKfSk7')
+                .catch(err => console.log('Service worker registration failed'));
+        }
+    </script>
+</body>
+</html>
